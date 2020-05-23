@@ -39,7 +39,7 @@ public class BlogServiceImpl implements BlogService {
 		return model2;
 
 	}
-
+   
 	public BlogModel getBlogDetailById(Long id) {
 		BlogModel model = null;
 		BlogEntity entity = blogRepository.getBlogDetailByBlogId(id);
