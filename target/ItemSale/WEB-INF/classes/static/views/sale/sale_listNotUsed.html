@@ -1,0 +1,309 @@
+
+<div class="container-fluid">
+
+	<div class="div-height-below-header">
+		<div class="container">
+			<P style="font-size: large;">Post Item Detail List</P>
+		</div>
+	</div>
+</div>
+
+
+
+<section class="content">
+
+<div class="gap-between-div"></div>
+	<div class="container">
+		<div ng-controller="SaleListCtrl" class="row">
+		
+ <div class="col-lg-3 col-md-3 leftSideBar rto-services">    
+        <ul>
+                    <li>
+            <div class="row header">
+                <div class="col-md-8">
+                    <h2 class="heading">Filter</h2>
+                </div>
+                <div class="col-md-4">
+                    <a >Reset</a>
+                </div>
+            </div>
+        </li> 
+                        
+                    <li>
+    <div>
+        <a>
+            <span>Category Wise</span>
+        </a>
+        <div class="filter">
+                        <div class="left-sidebar-container-list">
+                  
+                               
+                                <div class="checkbox checkbox-success">
+                    <div class="trim">
+                        <div class="checkbox body-type-filter">
+                            <input class="styled checkboxes" type="checkbox" >
+                            <label for="certified_history">
+                                History Premium Report
+                            </label>
+                        </div>    
+                    </div>				            
+                </div>
+                                <div class="checkbox checkbox-success">
+                    <div class="trim">
+                        <div class="checkbox body-type-filter" data-body_type="">
+                            <input class="styled checkboxes" type="checkbox">
+                            <label for="certified_obv">
+                                OBV Premium Report
+                            </label>
+                        </div>    
+                    </div>				            
+                </div>
+                            </div>
+               
+           
+        </div>
+    </div>
+</li>
+                                        
+        
+                                
+                <li>
+                            <div>
+                                    <a>
+                                            <span>Kilometers Driven </span>
+                                    </a>
+                                    
+                                <div style="padding: 0 10px; margin: 10px 0">
+                                <label><span id="kmsRangeVal">0 - 10,00,000</span></label>
+                                <br><br> 
+        <div id="kmsRange" data-from="0" data-to="1000000" data-min="0" data-max="1000000" data-ranges="{&quot;min&quot;:0,&quot;5%&quot;:10000,&quot;10%&quot;:20000,&quot;15%&quot;:30000,&quot;20%&quot;:40000,&quot;25%&quot;:50000,&quot;30%&quot;:60000,&quot;35%&quot;:70000,&quot;40%&quot;:80000,&quot;45%&quot;:90000,&quot;50%&quot;:100000,&quot;55%&quot;:150000,&quot;60%&quot;:200000,&quot;65%&quot;:250000,&quot;70%&quot;:300000,&quot;75%&quot;:350000,&quot;80%&quot;:400000,&quot;85%&quot;:450000,&quot;90%&quot;:500000,&quot;95%&quot;:750000,&quot;max&quot;:1000000}" class="noUi-target noUi-ltr noUi-horizontal"><div class="noUi-base"><div class="noUi-origin" style="left: 0%;"><div class="noUi-handle noUi-handle-lower" data-handle="0" style="z-index: 5;"></div></div><div class="noUi-connect" style="left: 0%; right: 0%;"></div><div class="noUi-origin" style="left: 100%;"><div class="noUi-handle noUi-handle-upper" data-handle="1" style="z-index: 4;"></div></div></div></div>
+                            </div>
+                            </div>
+			</li>                                        
+        
+                                
+                                         
+        
+                                
+                <li>
+    <div>
+        <a href="javascript:void(0);"><span>Fuel Type </span></a>
+        <div class="filter">
+                        <div class="left-sidebar-container-list">
+							
+			<div class="checkbox checkbox-success">
+                <div class="trim">
+                    <div class="checkbox body-type-filter" data-body_type="">
+                        <input class="styled checkboxes" type="checkbox" data-city="petrol" id="petrol">
+                        <label for="petrol">
+                            Petrol                        </label>
+                        
+                    </div>    
+                </div>				            
+	        </div>
+			</div>                        <input type="hidden" class="name" value="fuel_type">
+            <input type="hidden" class="type" value="multiple_check">   
+        </div>
+    </div>
+</li>
+                                        
+        
+                                
+                
+                                        
+        
+                                
+                    <li>
+    <div>
+        <a href="javascript:void(0);"><span>Color</span></a>
+        <div class="filter colorFilter">
+            <div class="left-sidebar-container-list clearfix">
+
+                <div>
+                     
+                 <div class="col-sm-6 ">
+                        <div class=" checkbox checkbox-success checkbox-black">
+                            <div class="trim">
+                                <div class="checkbox body-type-filter" data-body_type="">
+                                    <input id="1ffd9e753c8054cc61456ac7fac1ac89" class="styled checkboxes" type="checkbox">
+                                    <label for="1ffd9e753c8054cc61456ac7fac1ac89"><span>Black</span></label>
+                                </div>    
+                            </div>				            
+                        </div>
+                    </div>
+                     
+                    
+
+               
+                    
+                                    </div>
+               
+            </div>
+        </div>
+    </div>
+</li>		       
+
+                                        
+                                             
+        
+               
+    
+                            </ul>
+    <ul class="collapse" id="show_more_filters">        
+                                
+        
+                        
+        
+                                
+                    <li>
+    <div>
+        <a >
+            <span>Deals and Promotions</span>
+        </a>
+        <div class="filter">
+                        <div class="left-sidebar-container-list">
+                                <div class="checkbox checkbox-success">
+                    <div class="trim">
+                        <div class="checkbox body-type-filter" data-body_type="">
+                            <input class="styled checkboxes" type="checkbox" data-city="cashback_available" id="cashback_available">
+                            <label for="cashback_available">
+                                Cashback
+                            </label>
+                        </div>    
+                    </div>				            
+                </div>
+                                <div class="checkbox checkbox-success">
+                    <div class="trim">
+                        <div class="checkbox body-type-filter" data-body_type="">
+                            <input class="styled checkboxes" type="checkbox" data-city="discount_available" id="discount_available">
+                            <label for="discount_available">
+                                Discount Available
+                            </label>
+                        </div>    
+                    </div>				            
+                </div>
+                            </div>
+               
+            <input type="hidden" class="name" value="single_check">
+            <input type="hidden" class="type" value="single_check">
+        </div>
+    </div>
+</li>
+                <li>
+    <div>
+        <a ><span>Status</span></a>
+        <div class="filter">
+                        <div class="left-sidebar-container-list">
+							
+			<div class="checkbox checkbox-success">
+                <div class="trim">
+                    <div class="checkbox body-type-filter" data-body_type="">
+                        <input class="styled checkboxes" type="checkbox" checked="" data-city="active" id="active">
+                        <label for="active">
+                            Active                        </label>
+                        
+                    </div>    
+                </div>				            
+	        </div>
+						
+			<div class="checkbox checkbox-success">
+                <div class="trim">
+                    <div class="checkbox body-type-filter" data-body_type="">
+                        <input class="styled checkboxes" type="checkbox" data-city="sold" id="sold">
+                        <label for="sold">
+                            Sold                        </label>
+                        
+                    </div>    
+                </div>				            
+	        </div>
+						
+			<div class="checkbox checkbox-success">
+                <div class="trim">
+                    <div class="checkbox body-type-filter" data-body_type="">
+                        <input class="styled checkboxes" type="checkbox" data-city="all" id="all">
+                        <label for="all">
+                            All                        </label>
+                        
+                    </div>    
+                </div>				            
+	        </div>
+			</div>                        <input type="hidden" class="name" value="listing_status">
+            <input type="hidden" class="type" value="multiple_check">   
+        </div>
+    </div>
+</li>
+                                    </ul>
+    
+                <ul>
+            <li class="last">
+                <a href="javascript:void(0)" data-target="#show_more_filters" data-toggle="collapse" id="show_more_filters_btn">+Show More</a>
+            </li>
+        </ul>
+       
+</div>
+ <div class="col-sm-9 col-md-9 col-lg-9 col-xs-9">
+				<!-- POST -->
+				<div ng-repeat="data in itemList" class="post">
+					<div class="wrap-ut pull-left">
+						<div class="userinfo pull-left">
+							<div class="avatar">
+								<img alt="">
+								<div class="status green">&nbsp;</div>
+							</div>
+
+							<div class="icons">
+								<img alt=""><img alt="">
+							</div>
+						</div>
+						<div class="posttext pull-left">
+
+							<div class="row">
+								<h2>
+									<a ng-click="getItemDetail(data.id);"><span
+										ng-bind="data.title"></span>,<span ng-bind="data.year"></span><span
+										ng-bind="data.fuelType"></span></a>
+								</h2>
+								<p>
+									<span ng-bind="data.description"></span>
+								</p>
+								<p>
+									<span ng-bind="data.locationName"></span>,<span
+										ng-bind="data.cityName"></span>
+								</p>
+							</div>
+							<div class="row" style="margin-top: 10px;" class="blog-info">
+
+								<span class="author" ng-bind="data.createdBy"></span> <span
+									ng-bind="data.createdAt"> </span>
+
+							</div>
+						</div>
+						<div class="clearfix"></div>
+					</div>
+					<div class="postinfo pull-left">
+						<div class="comments">
+							<div>
+								<span ng-bind="data.price"></span>
+
+							</div>
+
+						</div>
+
+					</div>
+					<div class="clearfix"></div>
+				</div>
+				<!-- POST -->
+
+
+
+
+			</div>
+
+		</div>
+	</div>
+
+
+
+
+</section>
+

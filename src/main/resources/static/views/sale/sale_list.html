@@ -1,0 +1,188 @@
+
+<div class="container-fluid">
+
+	<div class="div-height-below-header">
+		<div class="container">
+			<div class="row">
+			<div class="col-lg-8 breadcrumbf">
+				<a ng-show="isLoggedinUser" ui-sref="sale_post">Sale Post</a>
+				 <a ng-hide="isLoggedinUser"  ui-sref="login">Sale Post</a> 
+				
+			</div>
+		</div>
+		</div>
+	</div>
+	
+</div>
+
+
+
+<section class="content">
+	<div class="container">
+		<div class="gap-between-div"></div>
+
+		<div class="gap-between-div"></div>
+	</div>
+
+
+
+
+	<div class="container">
+		<div ng-controller="SaleModelSearchCtrl" class="row">
+			<div class="col-lg-3 col-md-3 leftSideBar">
+				<ul>
+					<li>
+						<div class="row header">
+							<div class="col-md-8">
+								<h2 class="heading">Filter</h2>
+							</div>
+							<div class="col-md-4"></div>
+						</div>
+					</li>
+
+
+					<li>
+						<div>
+							<a><span>Color </span></a>
+							<div class="filter">
+								<input type="checkbox" ng-model="search.color"
+									ng-true-value="'Green'" ng-false-value="''"> <label
+									for="Green"> Green </label><br> <input type="checkbox"
+									ng-model="search.color" ng-true-value="'Black'"
+									ng-false-value="''"> <label for="Green">
+									Black </label>
+
+
+							</div>
+						</div>
+					</li>
+					<li>
+						<div>
+							<a><span>Ownership </span></a>
+							<div class="filter">
+								<input type="checkbox" ng-model="search.noOfOwner"
+									ng-true-value="'FirstOwner'" ng-false-value="''">
+								<label for="FirstOwner"> FirstOwner </label> <br><input
+									type="checkbox" ng-model="search.noOfOwner"
+									ng-true-value="'SecondOwner'" ng-false-value="''">
+								<label for="SecondOwner"> SecondOwner </label> <br><input
+									type="checkbox" ng-model="search.noOfOwner"
+									ng-true-value="'ThirdOwner'" ng-false-value="''">
+								<label for="ThirdOwner"> ThirdOwner </label><br> <input
+									type="checkbox" ng-model="search.noOfOwner"
+									ng-true-value="'FourthOwner'" ng-false-value="''">
+								<label for="FourthOwner"> SecondOwner </label>
+
+
+							</div>
+						</div>
+					</li>
+					<li>
+						<div>
+							<a><span>Condition </span></a>
+							<div class="filter">
+								<input type="checkbox" ng-model="search.conditionGrade"
+									ng-true-value="'Good'" ng-false-value="''"> <label
+									for="Good"> Good </label>
+									<br> <input type="checkbox"
+									ng-model="search.conditionGrade" ng-true-value="'Execielent'"
+									ng-false-value="!'Execielent'"> <label
+									for="Execielent"> Execielent </label>
+									<br> <input type="checkbox"
+									ng-model="search.conditionGrade" ng-true-value="'Very Good'"
+									ng-false-value="''"> <label for="Very Good">
+									Very Good </label> 
+									<br><input type="checkbox"
+									ng-model="search.conditionGrade" ng-true-value="'Poor'"
+									ng-false-value="''"> <label for="Poor">
+									Poor </label><br>
+									 <input type="checkbox" ng-model="search.conditionGrade"
+									ng-true-value="'Fair'" ng-false-value="''"> <label
+									for="Fair"> Fair </label>
+
+
+							</div>
+						</div>
+					</li>
+
+				</ul>
+
+
+
+			</div>
+			<div class="col-sm-9 col-md-9 col-lg-9">
+				<!-- POST -->
+
+				<div
+					ng-repeat="data in itemList | filter:search | orderBy: createdAt | limitTo : pageSize : (currentPage - 1) * pageSize track by data.id"
+					ng-class="{lastItem: $last}" class="post">
+					<div>
+						<div class="row">
+							<div class="col-sm-2 col-md-2 col-lg-2">
+								<div class="status green">&nbsp;</div>
+								<div class="avatar">
+									<img alt="" class="imgSizeforitemList"
+										ng-src="images/{{data.image1}}" />
+
+								</div>
+
+							</div>
+							<div class=" col-sm-8 col-md-8 col-lg-8">
+
+
+								<h2>
+									<a ng-click="getItemDetail(data.id);"><span
+										ng-bind="data.title"></span>&nbsp;&nbsp;<span ng-bind="data.year"></span>&nbsp;&nbsp;<span
+										ng-bind="data.fuelType"></span></a>
+								</h2>
+								<p>
+
+									<span ng-bind="data.description"></span>
+								</p>
+								
+								<p>
+									<span ng-bind="data.color"> </span> &nbsp;&nbsp;&nbsp; <span ng-bind="data.noOfOwner"></span>
+									&nbsp;&nbsp;&nbsp; <span ng-bind="data.conditionGrade"></span>
+								</p>
+								<p>
+									<span ng-bind="data.locationName"></span>,<span
+										ng-bind="data.cityName"></span>
+								</p>
+
+								<div style="margin-top: 10px;" class="blog-info">
+
+									<span class="author" ng-bind="data.createdBy"></span>&nbsp;&nbsp;- <span
+										ng-bind="data.createdAt"> </span>
+
+
+								</div>
+							</div>
+
+
+							<div class=" col-sm-2 col-md-2 col-lg-2">
+								<div class="comments">
+									<div>
+										<i class="fa fa-inr"></i> <span ng-bind="data.price| number"></span>
+
+									</div>
+
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<ul uib-pagination total-items="totalItems" ng-model="currentPage"
+					items-per-page="pageSize"></ul>
+
+
+
+			</div>
+
+		</div>
+	</div>
+
+
+
+
+</section>
+

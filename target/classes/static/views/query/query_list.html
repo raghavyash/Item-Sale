@@ -1,0 +1,119 @@
+
+<section class="content">
+	
+	
+
+<div class="container">
+		<div  class="row">
+			<div class="col-sm-8 col-md-8 col-lg-8">
+				 <h5 class="bodyheading">Query Detail: <span style="color: red;"> Total <span ng-bind="totalItems"></span></span></h5>
+				<div ng-repeat="data in queryList | limitTo : pageSize : (currentPage - 1) * pageSize track by $index" class="post">
+					<div class="wrap-ut pull-left">
+						<div class="userinfo pull-left">
+							<div class="avatar">
+								<span class="glyphicon glyphicon-user"></span>
+								<div ng-show="isLoggedinUser" class="status green">&nbsp;</div>
+								
+							</div>
+
+							<div class="icons">
+								<img alt=""><img alt="">
+							</div>
+						</div>
+						<div class="posttext pull-left body-word-wrap">
+							<div class="blog-content">
+								<!-- Post Info -->
+								<div class="blog-info">
+									<span> <span class="author" ng-bind="data.createdBy"></span>
+									</span> <span ng-bind="data.createdAt"> </span> <span class="tag"
+										ng-bind="data.queryTypeName"> </span>
+									<!-- <span class="cmt"> <i class="fa fa-comments"></i>No
+										Comments
+									</span> -->
+								</div>
+								<!-- End / Post Info -->
+								<h2>
+									<a ng-click="getQueryDetail(data.id)"><span
+										ng-bind="data.query"></span></a>
+								</h2>
+
+								<div>
+									<span ng-bind="data.description"></span>
+								</div>
+								<a ng-click="getQueryDetail(data.id)" class="read-more">
+									<span style="color: red;">READ MORE<i class="fa fa-arrow-circle-o-right"></i> </span>
+								</a>
+							</div>
+							 <input ng-show="isLoggedinUser" type="button" class="btn btn-primary" value="Comment" ng-click="ShowComment($index)" />
+                           <input ng-hide="isLoggedinUser" type="button" class="btn btn-primary" value="Comment" ui-sref="login" />
+                            
+                       <input ng-show="isLoggedinUser" type="button" class="btn btn-primary" value="Answer" ng-click="ShowAnswer($index)" />
+                       <input ng-hide="isLoggedinUser" type="button" class="btn btn-primary" value="Answer" ui-sref="login" />
+						</div>
+                     
+						<div ng-show = "data.isVisibleForAnswer" class="row">
+							<div class="col-sm-2 col-md-2 col-lg-2"></div>
+							<div class="col-sm-6 col-md-6 col-lg-6">
+								<textarea rows="5" cols="10" type="text" ng-model="data.queryAnswer"
+									class="form-control" placeholder="Answer here......"></textarea>
+							</div>
+							<div class="col-sm-2 col-md-2 col-lg-2">
+								<input type="button" class="btn btn-primary"
+									ng-click="saveQueryAnswer($index);" value="Answer"
+									name="button">&nbsp;&nbsp;&nbsp;
+									<input type="button" class="btn btn-primary"
+									 value="Close"ng-click="hideAnswer($index)" 
+									name="button">
+							</div>
+							<div class="col-sm-2 col-md-2 col-lg-2"></div>
+						</div>
+						<div  ng-show = "data.isVisibleForComment" class="row">
+							<div class="col-sm-2 col-md-2 col-lg-2"></div>
+							<div class="col-sm-6 col-md-6 col-lg-6">
+								<textarea rows="5" cols="10" type="text" ng-model="data.comment" size="100px"
+									class="form-control" placeholder="Commnent here......"></textarea>
+							</div>
+							<div class="col-sm-2 col-md-2 col-lg-2">
+								<input type="button" class="btn btn-primary"
+									ng-click="saveQueryComments($index);" value="Comment"
+									name="button">
+									&nbsp;&nbsp;&nbsp;
+									<input type="button" class="btn btn-primary"
+									 value="Close"ng-click="hideComment($index)" 
+									name="button">
+							</div>
+							<div class="col-sm-2 col-md-2 col-lg-2"></div>
+						</div>
+						<div class="clearfix"></div>
+					</div>
+					<div class="postinfo pull-left">
+						<div class="comments">
+							<div class="commentbg">
+								<span ng-bind="data.commentCount"></span>
+								<div class="mark"></div>
+							</div>
+
+						</div>
+						<div class="views">
+							<i class="fa fa-answer"></i> <span ng-bind="data.answerCount"></span>
+						</div>
+						<div class="time">
+							<i class="fa fa-time"></i> <span ng-bind="data.createdAt">
+							</span>
+						</div>
+					</div>
+					<div class="clearfix"></div>
+				</div>
+				<div align="right"><ui uib-pagination total-items="totalItems" ng-model="currentPage"
+					items-per-page="pageSize"></ui> </div>
+
+
+
+
+			</div>
+			
+		</div>
+	</div>
+	
+</section>
+

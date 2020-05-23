@@ -1,0 +1,58 @@
+
+
+<nav class="navbar navbar-inverse">
+	<div ng-controller="LoginCtrl" class="container-fluid">
+		<div class="navbar-header">
+			<a class="navbar-brand" href="#">RAGHAV</a>
+		</div>
+		<ul class="nav navbar-nav">
+			<li class="active"><a href="#/">Home</a></li>
+			<li ><a ng-show="isLoggedinUser" 
+						ui-sref="sale_post">Post Sale</a></li>
+					<li><a ng-hide="isLoggedinUser" 
+						ui-sref="login">Post Sale</a></li>
+
+				
+			<li class="dropdown"><a class="dropdown-toggle"
+				data-toggle="dropdown" ui-sref="blog">Blog </span></a>
+				<ul class="dropdown-menu">
+					<!-- <li><a ng-show="isLoggedinUser" 
+						ui-sref="blog_add">Add Blog</a></li>
+					<li><a ng-hide="isLoggedinUser" 
+						ui-sref="login">Add Blog</a></li> -->
+					<!-- <li><a ui-sref="blog" >Blog List</a></li> -->
+				</ul></li>
+			<li class="dropdown"><a class="dropdown-toggle"
+				data-toggle="dropdown" ui-sref="query">Query </span></a>
+				<ul class="dropdown-menu">
+				<!-- 	<li><a ng-show="isLoggedinUser" 
+						ui-sref="query_add">Add Query</a></li>
+					<li><a ng-hide="isLoggedinUser" 
+						ui-sref="login">Add Query</a></li> -->
+					<!-- <li><a  >Query List</a></li> -->
+				</ul></li>
+
+		</ul>
+		<ul class="nav navbar-nav navbar-right">
+			<li><a ui-sref="feedbcak_form">Feedback</a></li>
+			<li ng-show="islogin"><a ui-sref="login"><span
+					class="glyphicon glyphicon-log-in"></span> Login</a></li>
+			
+			<li ng-show="!islogin"><a class="dropdown-toggle"
+				data-toggle="dropdown" ><span
+					class="glyphicon glyphicon-user"></span>&nbsp;&nbsp;<span
+					ng-bind="user.firstName"> </span> </a>
+				<ul class="dropdown-menu">
+					<li><a ui-sref="userDetail">UserDetail</a></li>
+					<li><a ng-click="logoutUser();">SignOut</a></li>
+
+
+				</ul></li>
+				<li class="dropdown"><a class="dropdown-toggle"
+				data-toggle="dropdown" href="#"> </span></a>
+				<li class="dropdown"><a class="dropdown-toggle"
+				data-toggle="dropdown" href="#"> </span></a>
+				
+		</ul>
+	</div>
+</nav>

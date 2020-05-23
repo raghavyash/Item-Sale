@@ -1,0 +1,93 @@
+
+<section class="content">
+	<div class="container">
+		<div  class="row">
+			<div class="col-sm-8 col-md-8 col-lg-8">
+				 <h5 class="bodyheading">Blog Search Detail: <span style="color: red;"> Total <span ng-bind="totalItems"></span></span></h5>
+				<div ng-repeat="data in blogList | limitTo : pageSize : (currentPage - 1) * pageSize track by data.id" class="post">
+					<div class="wrap-ut pull-left">
+						<div class="userinfo pull-left">
+							<div class="avatar">
+								 <div>
+											<span class="glyphicon glyphicon-user"></span>
+
+						</div>
+							</div>
+	                  </div>
+						<div class="posttext pull-left">
+							<div class="blog-content">
+								
+								<h2>
+									<a ng-click="getBlogDetail(data.id)"><span
+										ng-bind="data.title"></span></a>
+								</h2>
+
+								<div>
+									<span ng-bind="data.description"></span>
+								</div>
+								<div class="blog-info">
+								 <span class="tag"
+										ng-bind="data.blogTypeName"> </span>
+								</div>
+								<a ng-click="getBlogDetail(data.id)" class="read-more">
+									<span style="color: red;">READ MORE<i class="fa fa-arrow-circle-o-right"></i> </span>
+								</a>
+							</div>
+							<input ng-show="isLoggedinUser" type="button" class="btn btn-primary" value="Comment" ng-click="ShowComment($index)" />
+                           <input ng-hide="isLoggedinUser" type="button" class="btn btn-primary" value="Comment" ui-sref="login" />
+                     
+						</div>
+                     
+						
+						<div  ng-show = "IsVisibleForComment" class="row">
+							<div class="col-sm-2 col-md-2 col-lg-2"></div>
+							<div class="col-sm-6 col-md-6 col-lg-6">
+								<textarea rows="5" cols="10" type="text" ng-model="data.comment" size="100px"
+									class="form-control" placeholder="Commnent here......"></textarea>
+							</div>
+							<div class="col-sm-2 col-md-2 col-lg-2">
+								<input type="button" class="btn btn-primary"
+									ng-click="saveBlogComments($index);" value="Comment"
+									name="button">
+									
+									<input type="button" class="btn btn-primary"
+									 value="Close"ng-click="hideComment($index)" 
+									name="button">
+							</div>
+							<div class="col-sm-2 col-md-2 col-lg-2"></div>
+						</div>
+						<div class="clearfix"></div>
+					</div>
+					<div class="postinfo pull-left">
+						<div class="comments">
+							<div class="commentbg">
+								<span ng-bind="data.commentCount"></span>
+								<div class="mark"></div>
+							</div>
+
+						</div>
+						
+						<div class="time">
+							<i class="fa fa-time"></i> <span ng-bind="data.createdAt">
+							</span>
+						</div>
+						<div class="time">
+							<i class="fa fa-time"></i> <span ng-bind="data.createdBy">
+							</span>
+						</div>
+					</div>
+					<div class="clearfix"></div>
+				</div>
+				<div align="right"><ui uib-pagination total-items="totalItems" ng-model="currentPage"
+					items-per-page="pageSize"></ui> </div>
+				</div>
+				
+			
+		</div>
+	</div>
+
+
+
+	
+</section>
+

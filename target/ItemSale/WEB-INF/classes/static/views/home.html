@@ -1,0 +1,144 @@
+
+<section class="content">
+	<div class="container">
+		<div class="div-height-below-header">
+			<div class="container">
+				<P style="font-size: large;">Select Item To Continue</P>
+			</div>
+		</div>
+	</div>
+
+	<div ng-controller="HomePageCtrl" class="container">
+		<div class="row">
+			<div class="col-lg-8 col-sm-8 col-md-8">
+				<div class="post">
+					<div class="row">
+
+
+						<div ng-repeat="data in itemCountDetailList">
+
+							<div ng-if="$index % 4 == 0" class="clearfix"></div>
+
+							<div class="col-lg-3  col-sm-3 col-md-3">
+
+								<a ng-click="getSaleDetialList(data.itemId);"><img src="images/aspire.png" alt="..."
+									class="img-thumbnail"> <span ng-bind="data.itemName"></span>
+									(<span ng-bind="data.itemCount"></span>) </a>
+
+							</div>
+						</div>
+					</div>
+					</div>
+					<div class="post">
+              <div class="row">
+          <div class="col-lg-4 col-sm-4 col-md-4">
+          <div class="sidebarblock ">
+				<h3>Query Type Detail</h3>
+				<div class="divline"></div>
+				<div class="blocktxt row">
+					<ul ng-repeat="data in queryTypeCountList | limitTo : 7" class="list-group">
+						<li
+							class="list-group-item d-flex justify-content-between align-items-center">
+							<a ng-click="getQueryDetailByQueryTypeId(data.id);" >  <span class="body-word-wrap"  ng-bind="data.queryTypeName"></span> </a>
+							 <span data-toggle="tooltip" data-placement="left" title="Total Query Type Records" class="badge badge-success badge-pill" ng-bind="data.records"></span>
+							 
+						</li>
+					</ul>
+					</div>
+				</div>
+          </div>
+             <div class="col-lg-4  col-sm-4 col-md-4">
+          <div class="sidebarblock">
+				<h3>Blog Type Detail</h3>
+				<div class="divline"></div>
+				<div class="blocktxt row">
+					<ul ng-repeat="data in blogTypeCountList | limitTo : 7" class="list-group">
+						<li
+							class="list-group-item d-flex justify-content-between align-items-center">
+							<a ng-click="getBlogDetailByBlogTypeId(data.id);">  <span class="body-word-wrap" ng-bind="data.blogTypeName"></span> </a>
+							 <span  data-toggle="tooltip" data-placement="left" title="Total Blog Type Records" class="badge badge-primary badge-pill" ng-bind="data.records"></span>
+							
+						</li>
+					</ul>
+					</div>
+				</div>
+          </div>
+           <div class="col-lg-4 col-sm-4 col-md-4"></div>
+          </div>
+				<div class="clearfix"></div>
+			</div>
+		</div>
+
+			<div class="col-lg-4 col-sm-4 col-md-4">
+
+               
+				<div class="sidebarblock">
+				<h3>Item Detail List</h3>
+				<div class="divline"></div>
+				<div class="blocktxt row">
+					<ul ng-repeat="data in itemCountDetailList | limitTo : 5" class="list-group">
+						<li
+							class="list-group-item d-flex justify-content-between align-items-center">
+							<a ng-click="getSaleDetialList(data.itemId);"> <span class="body-word-wrap" ng-bind="data.itemName"></span></a>
+							 <span data-toggle="tooltip" data-placement="left" title="Total Item" class="badge badge-primary badge-pill"  ng-bind="data.itemCount"></span> 
+						</li>
+					</ul>
+					</div>
+				</div>
+
+				<!-- -->
+				<div class="sidebarblock">
+					<h3>Query Detail List</h3>
+					<div class="divline"></div>
+					<div class="blocktxt row">
+						<ul ng-repeat="data in queryCountDetailList | limitTo : 5" class="list-group">
+						<li
+							class="list-group-item d-flex justify-content-between align-items-center">
+							<a ng-click="getQueryDetail(data.id);">  <span class="body-word-wrap"  ng-bind="data.query"></span> </a>
+							 <span data-toggle="tooltip" data-placement="left" title="Total Comment" class="badge badge-success badge-pill" ng-bind="data.commentCount"></span>
+							 <span data-toggle="tooltip" data-placement="left" title="Total Answer" class="badge badge-primary badge-pill" ng-bind="data.answerCount"></span>
+						</li>
+					</ul>
+					</div>
+				</div>
+				
+				<div class="sidebarblock">
+					<h3>Blog Detail List</h3>
+					<div class="divline"></div>
+					<div class="blocktxt row">
+						<ul ng-repeat="data in blogCountDetailList | limitTo : 5" class="list-group">
+						<li
+							class="list-group-item d-flex justify-content-between align-items-center">
+							<a ng-click="getBlogDetail(data.id);">  <span class="body-word-wrap" ng-bind="data.title"></span> </a>
+							 <span  data-toggle="tooltip" data-placement="left" title="Total Comment" class="badge badge-primary badge-pill" ng-bind="data.commentCount"></span>
+							
+						</li>
+					</ul>
+					</div>
+				</div>
+
+				<!-- -->
+				<div class="sidebarblock">
+					<h3>Google</h3>
+					<div class="divline"></div>
+					<div class="blocktxt">
+						<a href="#">Facebook</a>
+					</div>
+
+
+
+				</div>
+			</div>
+		     
+		</div>
+	</div>
+
+
+
+
+
+
+
+
+</section>
+

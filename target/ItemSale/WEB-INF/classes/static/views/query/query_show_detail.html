@@ -1,0 +1,255 @@
+<section class="content">
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-8 col-md-8 col-lg-8">
+				<div class="post row">
+					  <div class="col-sm-1 col-md-1 col-lg-1">
+                       <div>
+											<span class="glyphicon glyphicon-user"></span>
+
+						</div>
+                       </div>
+						<div class="col-sm-9 col-md-9 col-lg-9 marginParagraph body-word-wrap">
+							<p>
+								<strong> <span class="author"
+									ng-bind="queryDetail.createdBy"> </span> - <span class="author"
+									ng-bind="queryDetail.createdAt"> </span>
+								</strong>
+							</p>
+
+							<h3 class="title mb-3">
+								<a ><span ng-bind="queryDetail.query"></span></a>
+							</h3>
+
+							<p>
+								<span ng-bind="queryDetail.description"></span>
+							</p>
+
+							<p>
+								<span class="tag" ng-bind="queryDetail.queryTypeName"></span>
+							</p>
+							
+							<p>
+								<i class="fa fa-plus-circle"></i> <span class="tag"
+									ng-bind="queryDetail.answerCount"></span>
+							</p>
+							<p>
+								<i class="glyphicon glyphicon-comment"></i> <span class="tag"
+									ng-bind="queryDetail.commentCount"></span>
+							</p>
+
+						</div>
+					
+
+				</div>
+				<div class="row">
+					<div>
+						<div>
+
+							<button class="btn btn-success btn-block">
+								<span class="fa fa-plus-circle"></span> Answer <strong><span
+									ng-bind="queryDetail.answerCount"></span></strong>
+
+							</button>
+						</div>
+						<div>
+							<div ng-repeat="data in queryDetail.queryAnswerModels | orderBy:data.createdAt"
+								class="post ">
+
+								<div class="marginParagraph body-word-wrap row">
+									<div class="col-sm-1 col-md-1 col-lg-1">
+
+										<div>
+											<span class="glyphicon glyphicon-user"></span>
+
+										</div>
+									</div>
+									<div class="col-sm-11 col-md-11 col-lg-11">
+										<div>
+										<p>
+											<span ng-bind="data.createdBy"></span> - <span
+												ng-bind="data.createdAt"> </span>
+										</p>
+										<h2>
+											<p>
+												<a><span ng-bind="data.queryAnswer"></span></a>
+											</p>
+										</h2>
+										</div>
+										<!-- This div is for Answer Reply List -->
+										<div ng-repeat="replyData in data.replyAnswerModels | orderBy:replyData.createdAt"
+								           class="post ">
+										 <div ng-if="data.id == replyData.queryAnswerId">
+										<div class="marginParagraph body-word-wrap row">
+										<div class="col-sm-1 col-md-1 col-lg-1">
+
+										<div>
+											<span class="glyphicon glyphicon-user"></span>
+
+										</div>
+										</div>
+										<div  class="col-sm-11 col-md-11 col-lg-11">
+										<p>
+											<span ng-bind="replyData.createdBy"></span> - <span
+												ng-bind="replyData.createdAt"> </span>
+										</p>
+										<h2>
+											<p>
+												<a><span ng-bind="replyData.reply"></span></a>
+											</p>
+										</h2>
+										</div>
+									</div>
+									 </div>
+										</div>
+										
+										<div>
+										<input type="button" class="btn btn-success"
+											ng-show="isLoggedinUser" value="Reply"
+											ng-click="ShowAnswerReply($index)" /> <input type="button"
+											class="btn btn-success" ng-hide="isLoggedinUser"
+											value="Reply" ui-sref="login" /></div>
+									</div>
+									<div ng-show="data.isVisibleForAnswerReply" class="row">
+
+										<div>
+											<textarea rows="2" cols="5" type="text" ng-model="data.reply"
+												size="100px" class="form-control"
+												placeholder="Reply Answer here......"></textarea>
+
+											<div>
+												<input type="button" class="btn btn-primary"
+													ng-click="saveQueryAnswersReply($index);"
+													value="Post Reply" name="button">
+												&nbsp;&nbsp;&nbsp; <input type="button"
+													class="btn btn-primary" value="Close"
+													ng-click="hideAnswerReply($index)" name="button">
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="row">
+					<div>
+						<div>
+							<textarea rows="5" cols="10" type="text" ng-model="queryAnswer"
+								class="form-control" placeholder="Answer here......"></textarea>
+							<input ng-show="isLoggedinUser" type="button"
+								class="btn btn-success"
+								ng-click="saveQueryAnswer(queryDetail.id);" value="Post Answer"
+								name="button"> <a ng-hide="isLoggedinUser"
+								class="btn btn-success" ui-sref="login" name="button">Post
+								Answer</a>
+						</div>
+					</div>
+				</div>
+
+				<div class="row">
+					<div>
+						<button class="btn btn-info btn-block">
+							<span class="glyphicon glyphicon-comment"></span> Comment <span
+								ng-bind="queryDetail.commentCount"></span>
+						</button>
+					</div>
+					<div>
+						<div ng-repeat="data in queryDetail.queryCommentModels | orderBy:data.createdAt"
+							class="post ">
+							<div class="marginParagraph body-word-wrap row">
+								<div class="col-sm-1 col-md-1 col-lg-1">
+									<div>
+										<span class="glyphicon glyphicon-user"></span>
+									</div>
+								</div>
+								<div class="col-sm-11 col-md-11 col-lg-11 ">
+									<div>
+									<p>
+										<span ng-bind="data.createdBy"></span>- <span
+											ng-bind="data.createdAt"> </span>
+									</p>
+									<h2>
+										<a><span ng-bind="data.comment"></span></a>
+									</h2>
+									</div>
+									
+										<!-- This div is for Comment Reply List -->
+										<div ng-repeat="replyData in data.replyCommentModels | orderBy:replyData.createdAt"
+								           class="post ">
+										 <div ng-if="data.id == replyData.queryCommentId">
+										<div class="marginParagraph body-word-wrap row">
+										<div class="col-sm-1 col-md-1 col-lg-1">
+
+										<div>
+											<span class="glyphicon glyphicon-user"></span>
+
+										</div>
+										</div>
+										<div  class="col-sm-11 col-md-11 col-lg-11">
+										<p>
+											<span ng-bind="replyData.createdBy"></span> - <span
+												ng-bind="replyData.createdAt"> </span>
+										</p>
+										<h2>
+											<p>
+												<a><span ng-bind="replyData.reply"></span></a>
+											</p>
+										</h2>
+										</div>
+									</div>
+									 </div>
+										</div>
+									
+									<div>
+									<input type="button" class="btn btn-success"
+										ng-show="isLoggedinUser" value="Reply"
+										ng-click="ShowCommentReply($index)" /> <input type="button"
+										class="btn btn-success" ng-hide="isLoggedinUser" value="Reply"
+										ui-sref="login" />
+								</div>
+								</div>
+							
+
+							<div ng-show="data.isVisibleForCommentReply" class="row">
+
+								<div>
+									<textarea rows="2" cols="5" type="text" ng-model="data.reply"
+										 class="form-control"
+										placeholder="Reply Commnent here......"></textarea>
+
+									<div>
+										<input type="button" class="btn btn-primary"
+											ng-click="saveQueryCommentsReply($index);" value="Post Reply"
+											name="button"> &nbsp;&nbsp;&nbsp; <input
+											type="button" class="btn btn-primary" value="Close"
+											ng-click="hideCommentReply($index)" name="button">
+									</div>
+								</div>
+							</div>
+							</div>
+						</div>
+					</div>
+					<div class="clearfix"></div>
+				</div>
+				<div class="row">
+					<div>
+						<div>
+							<textarea rows="5" cols="10" type="text" ng-model="comment"
+								class="form-control" placeholder="Commnent here......"></textarea>
+
+							<input ng-show="isLoggedinUser" type="button"
+								class="btn btn-success"
+								ng-click="saveQueryComment(queryDetail.id);"
+								value="Post Comment" name="button"> <a
+								ng-hide="isLoggedinUser" class="btn btn-success" ui-sref="login"
+								name="button">Post Comment</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</section>

@@ -1,0 +1,236 @@
+<section class="content">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-8 breadcrumbf">
+				<a href="#/">Home</a> <span class="diviver">&gt;</span> <a
+					ui-sref="sale_list">Back</a></span>
+			</div>
+		</div>
+	</div>
+
+
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-5 col-md-5 col-lg-5 border-right">
+				<div class="gallery-wrap">
+					<div class="img-big-wrap">
+						<div>
+							<a><img alt="" src="images/aspire.png" /></a>
+						</div>
+					</div>
+					<!-- slider-product.// -->
+					<div class="img-small-wrap">
+						<div class="item-gallery">
+							<a><img alt="" src="images/aspire.png" /></a>
+						</div>
+						<div class="item-gallery">
+							<a><img alt="" src="images/aspire.png" /></a>
+						</div>
+						<div class="item-gallery">
+							<a><img alt="" src="images/aspire.png" /></a>
+						</div>
+						<div class="item-gallery">
+							<a><img alt="" src="images/aspire.png" /></a>
+						</div>
+					</div>
+					<!-- slider-nav.// -->
+				</div>
+				<!-- gallery-wrap .end// -->
+			</div>
+			<div class="col-sm-7 col-md-7 col-lg-7 col-xs-7">
+				<div class="row post">
+					<h3 class="title mb-3">
+						<span ng-bind="saleDetailItem.title"></span>
+					</h3>
+					<div class="col-sm-6 col-md-6 col-lg-6">
+                         <p>
+							<label>Price: </label> <i class="fa fa-inr"></i>
+								<span ng-bind="saleDetailItem.price"></span>
+						</p>
+
+						<p>
+							<label>Year: </label> <span ng-bind="saleDetailItem.year"></span>
+						</p>
+						<p> <label>Fuel Type: </label>
+							<span ng-bind="saleDetailItem.fuelType"></span>
+						</p>
+
+						<p>
+							<label>KM Driven: </label> <span ng-bind="saleDetailItem.kmDriven">
+						</p>
+					</div>
+					<div class="col-sm-6 col-md-6 col-lg-6">
+						<p class="item-property">
+							<label>Location:</label> <span
+								ng-bind="saleDetailItem.locationName"></span>
+						</p>
+
+						<p class="item-property">
+							<label>City Name:</label> <span ng-bind="saleDetailItem.cityName"></span>
+						</p>
+						<p>
+							<label>Create By</label> <span class="author"
+								ng-bind="saleDetailItem.createdBy"></span>
+						</p>
+						<p>
+							<label>Create Date:</label> <span ng-bind="saleDetailItem.createdAt">
+						</p>
+					</div>
+
+
+					<a href="#" class="btn btn-lg btn-primary text-uppercase"> Show
+						User Detail </a>
+				</div>
+				<!-- card-body.// -->
+			</div>
+			<div class="row post">
+				<p class="item-property">
+					<span>Description: </span> <span
+						ng-bind="saleDetailItem.description"></span>
+				</p>
+			</div>
+
+			<div class="row similarposts">
+				<div class="col-sm-10 col-md-10 col-lg-10">
+					<i class="fa fa-info-circle"></i>
+					<p>
+						Similar Posts according to your <a href="#">Topic Title</a>.
+					</p>
+				</div>
+				<div class="col-sm-2 col-md-2 col-lg-2 loading">
+					<i class="fa fa-spinner"></i>
+				</div>
+
+			</div>
+
+
+		</div>
+
+	</div>
+
+
+	<!-- Similar Item -->
+
+	<div class="container">
+		<div ng-controller="SaleListCtrl" class="row">
+			<div class="col-sm-8 col-md-8 col-lg-8">
+				<!-- POST -->
+				<div ng-repeat="data in userSaleList" class="post">
+
+					<div class="row">
+						<div class="col-sm-3 col-md-3 col-lg-3 ">
+							<div class="status green">&nbsp;</div>
+							<div class="avatar">
+								<img alt="" class="imgSizeforitemList"
+									src="images/aspire.png" />
+							</div>
+						</div>
+						<div class=" col-sm-7 col-md-7 col-lg-7">
+
+
+							<h2>
+								<a ng-click="getItemDetail(data.id);"><span
+									ng-bind="data.title"></span>,<span ng-bind="data.year"></span><span
+									ng-bind="data.fuelType"></span></a>
+							</h2>
+							<p>
+
+								<span ng-bind="data.description"></span>
+							</p>
+							<p>
+								<span ng-bind="data.locationName"></span>,<span
+									ng-bind="data.cityName"></span>
+							</p>
+
+							<div style="margin-top: 10px;" class="blog-info">
+
+								<span class="author" ng-bind="data.createdBy"></span> <span
+									ng-bind="data.createdAt"> </span>
+
+
+							</div>
+						</div>
+
+
+						<div class=" col-sm-2 col-md-2 col-lg-2">
+							<div class="comments">
+								<div>
+									<i class="fa fa-inr"></i> <span ng-bind="data.price"></span>
+
+								</div>
+
+							</div>
+						</div>
+					</div>
+
+				</div>
+
+			</div>
+			<div class="col-sm-4 col-md-4 col-lg-4">
+				<div class="sidebarblock">
+					<h3>Item Detail List</h3>
+					<div class="divline"></div>
+					<div class="blocktxt">
+						<ul ng-repeat="data in itemCountDetailList" class="list-group">
+							<li
+								class="list-group-item d-flex justify-content-between align-items-center">
+								<span ng-bind="data.itemName"></span> <span
+								data-toggle="tooltip" data-placement="left" title="Total Item"
+								class="badge badge-primary badge-pill" ng-bind="data.itemCount"></span>
+							</li>
+						</ul>
+					</div>
+				</div>
+
+				<!-- -->
+				<div class="sidebarblock">
+					<h3>Query Detail List</h3>
+					<div class="divline"></div>
+					<div class="blocktxt">
+						<ul ng-repeat="data in queryCountDetailList" class="list-group">
+							<li
+								class="list-group-item d-flex justify-content-between align-items-center">
+								<span ng-bind="data.query"></span> <span data-toggle="tooltip"
+								data-placement="left" title="Total Comment"
+								class="badge badge-success badge-pill"
+								ng-bind="data.commentCount"></span> <span data-toggle="tooltip"
+								data-placement="left" title="Total Answer"
+								class="badge badge-primary badge-pill"
+								ng-bind="data.answerCount"></span>
+							</li>
+						</ul>
+					</div>
+				</div>
+
+				<div class="sidebarblock">
+					<h3>Blog Detail List</h3>
+					<div class="divline"></div>
+					<div class="blocktxt">
+						<ul ng-repeat="data in blogCountDetailList" class="list-group">
+							<li
+								class="list-group-item d-flex justify-content-between align-items-center">
+								<span ng-bind="data.query"></span> <span
+								class="badge badge-primary badge-pill"
+								ng-bind="data.commentCount"></span>
+
+							</li>
+						</ul>
+					</div>
+				</div>
+
+				<!-- -->
+				<div class="sidebarblock">
+					<h3>Google</h3>
+					<div class="divline"></div>
+					<div class="blocktxt">
+						<a href="#">Facebook</a>
+					</div>
+
+
+
+				</div>
+
+			</div>
+		</div>
+	</div>
+</section>

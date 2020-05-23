@@ -1,0 +1,63 @@
+<div class="container">
+<form id="contact-form"  ng-controller="FeedBackCtrl" role="form">
+
+    <div class="messages"></div>
+
+    <div class="controls">
+         <h3 class="bodyheading">FeedBack Form</h3>
+        <div class="row">
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label for="form_name">Firstname <strong style="color: red">*</strong></label>
+                    <input id="form_name" ng-model="firstName" type="text" name="firstName" class="form-control" placeholder="Please enter your firstname *" required="required" data-error="Firstname is required.">
+                    <div class="help-block with-errors"></div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label for="form_lastname">Lastname <strong style="color: red">*</strong></label>
+                    <input id="form_lastname" ng-model="lastname" type="text" name="lastname" class="form-control" placeholder="Please enter your lastname *" required="required" data-error="Lastname is required.">
+                    <div class="help-block with-errors"></div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label for="form_email">Email <strong style="color: red">*</strong></label>
+                    <input id="form_email" ng-model="email" type="email" name="email" class="form-control" placeholder="Please enter your email *" required="required" data-error="Valid email is required.">
+                    <div class="help-block with-errors"></div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label for="form_phone">Phone</label>
+                    <input id="form_phone" ng-model="phone" type="tel" name="phone" class="form-control" placeholder="Please enter your phone">
+                    <div class="help-block with-errors"></div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="form_message">Message <strong style="color: red">*</strong></label>
+                    <textarea id="form_message" ng-model="message" name="message" class="form-control" placeholder="Message for me *" rows="4" required="required" data-error="Please,leave us a message."></textarea>
+                    <div class="help-block with-errors"></div>
+                </div>
+            </div>
+            </div>
+            <div class="row">
+            <div class="col-md-2">
+                <input type="button" ng-click="saveFeedback();" class="btn btn-success btn-send" value="Send message">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <p class="text-muted"><strong style="color: red">*</strong> These fields are required.</p>
+            </div>
+        </div>
+    </div>
+
+</form>
+
+</div>
