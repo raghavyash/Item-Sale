@@ -31,8 +31,6 @@ public class AdminController {
 
 	// For city Module
 
-	
-
 	@PostMapping(value = "/save_city", headers = "Accept=application/json")
 	public @ResponseBody Map<String, Object> saveCity(@RequestBody CityModel model) {
 		Map<String, Object> response = new HashMap<String, Object>();
